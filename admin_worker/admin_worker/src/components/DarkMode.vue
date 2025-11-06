@@ -33,4 +33,16 @@ const toggleTheme = () => {
 //   updateDarkModeState();
 //   enableDarkMode();
 // });
+
+// 초기 테마 설정 (localStorage 읽기)
+onMounted(() => {
+    //로컬에 저앚된 테마를 초기에 적용시킴
+  const savedTheme = localStorage.theme;
+  if (savedTheme === "dark") {
+    document.documentElement.classList.add("dark");
+  } else if (savedTheme === "light") {
+    document.documentElement.classList.remove("dark");
+  }
+  updateDarkModeState();
+});
 </script>
